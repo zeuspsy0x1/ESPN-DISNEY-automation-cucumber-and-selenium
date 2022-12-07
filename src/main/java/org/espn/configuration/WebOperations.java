@@ -4,7 +4,6 @@ import static org.openqa.selenium.support.PageFactory.initElements;
 
 import java.time.Duration;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class WebOperations {
-    private WebDriver driver;
+    private final WebDriver driver;
     private final WebDriverWait wait;
 
     public WebOperations(WebDriver driver) {
@@ -59,8 +58,6 @@ public class WebOperations {
 //    public void reloadThisPage() {
 //        this.driver.navigate().refresh();
 //    }
-
-
 }
 
 

@@ -6,20 +6,21 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.espn.utils.BaseForAllTests;
 
 
 @CucumberOptions(
             plugin = {"pretty"},
             features = {"src/test/resources"},
-            glue = {"stepDefinitions"}
+            glue = {"org/espn/stepDefinitions"}
     )
-    public class TestRunner {
+    public class TestRunner extends BaseForAllTests{
         private TestNGCucumberRunner testNGCucumberRunner;
-
 
         @BeforeClass(alwaysRun = true)
         public void setUpClass() {
             testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
+            //testSetUp();
         }
 
         @Test(groups = "cucumber", description = "Runs Cucumber Scenarios", dataProvider = "scenarios")
