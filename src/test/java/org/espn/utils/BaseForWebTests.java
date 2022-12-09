@@ -4,16 +4,14 @@ import org.apache.log4j.Logger;
 import org.espn.configuration.Driver;
 import org.espn.pages.HomePage;
 import org.espn.pages.WatchPage;
-import org.espn.stepDefinitions.SignUpValidations;
 import org.hamcrest.Matcher;
 import org.hamcrest.MatcherAssert;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 
 import static java.lang.String.format;
 import static org.hamcrest.CoreMatchers.is;
 
-public class BaseForAllTests {
+public class BaseForWebTests {
 
     private Driver driver;
     protected HomePage homePage;
@@ -35,7 +33,7 @@ public class BaseForAllTests {
         return this.username;
     }
 
-    public Logger log = Logger.getLogger(SignUpValidations.class);
+    public Logger log = Logger.getLogger(BaseForWebTests.class);
 
 
 
