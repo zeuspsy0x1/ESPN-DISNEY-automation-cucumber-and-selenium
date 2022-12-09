@@ -1,19 +1,16 @@
-package org.espn.stepDefinitions;
+package tests.stepDefinitions.espn;
 
 
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.espn.pages.HomePage;
 import org.espn.pages.WatchPage;
-import org.espn.utils.BaseForAllTests;
+import org.espn.utils.BaseForWebTests;
 
 import static org.hamcrest.CoreMatchers.is;
 
 
-public class WatchPageValidations extends BaseForAllTests {
-
+public class WatchPageValidations extends BaseForWebTests {
 
     @Given("user is logged in ESPN webpage")
     public void user_is_logged_in() throws InterruptedException {

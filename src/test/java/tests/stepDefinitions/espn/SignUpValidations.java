@@ -1,19 +1,17 @@
-package org.espn.stepDefinitions;
+package tests.stepDefinitions.espn;
 
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.apache.log4j.Logger;
-import org.espn.utils.BaseForAllTests;
+import org.espn.utils.BaseForWebTests;
 
 
-public class SignUpValidations extends BaseForAllTests {
+public class SignUpValidations extends BaseForWebTests {
 
-    public Logger log = Logger.getLogger(SignUpValidations.class);
 
     @Given("ESPN webpage is opened in the browser window")
-    public void browser_window_is_open() throws InterruptedException {
+    public void browser_window_is_open() {
             testSetUp();
     }
 
@@ -27,5 +25,4 @@ public class SignUpValidations extends BaseForAllTests {
         System.out.println("TEEEEEEEEEEEAAAAAAAAAAAARRRRRRRRRRR DDDDDDDDOOOOOOOOOOWWWWWWWWWNNNNNNNNN");
         tearDown();
     }
-
 }

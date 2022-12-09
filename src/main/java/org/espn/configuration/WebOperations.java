@@ -4,6 +4,8 @@ import static org.openqa.selenium.support.PageFactory.initElements;
 
 import java.time.Duration;
 import java.util.List;
+
+import okio.Timeout;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,7 +20,7 @@ public class WebOperations {
 
     public WebOperations(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(6L));
+        this.wait = new WebDriverWait(driver, 10L);
         initElements(driver, this);
     }
     public WebDriver getDriver() {
