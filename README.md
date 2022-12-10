@@ -3,7 +3,7 @@
 <h2 class="code-line" data-line-start=5 data-line-end=6 ><a id="To_run_it_5"></a>To run it:</h2>
 <ul>
 <li class="has-line-data" data-line-start="6" data-line-end="7">Open the project in the IDE, run maven configuration for it, and then run the &lt;MobileTestRunner&gt; and &lt;WebTestRunner&gt; classes.</li>
-<li class="has-line-data" data-line-start="7" data-line-end="9">You will need to have java 8 installed and the Android Studio and Appium server configured and running. Also configure the capabilities in the &lt;mobile_capabilities.json&gt;.</li>
+<li class="has-line-data" data-line-start="7" data-line-end="9">You will need to have Java 8 installed and the Android Studio and Appium server configured and running. Also configure the capabilities in the &lt;mobile_capabilities.json&gt;.</li>
 </ul>
 <h2 class="code-line" data-line-start=9 data-line-end=10 ><a id="Have_in_mind_9"></a>Have in mind:</h2>
 <ul>
