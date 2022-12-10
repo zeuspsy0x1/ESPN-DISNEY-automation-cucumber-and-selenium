@@ -2,10 +2,10 @@ package org.espn.configuration;
 
 import static org.openqa.selenium.support.PageFactory.initElements;
 
-import java.time.Duration;
+
 import java.util.List;
 
-import okio.Timeout;
+import javafx.scene.control.Tab;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -39,6 +39,7 @@ public class WebOperations {
     public void typeOnInput(WebElement element, String text) {
         element.sendKeys(text);
     }
+
     public void waitForVisibility(WebElement element) {
         this.wait.until(ExpectedConditions.visibilityOf(element));
     }
@@ -57,9 +58,9 @@ public class WebOperations {
     public void waitToSeeIfElementAppears(String selector) {
         this.wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(selector)));
     }
-//    public void reloadThisPage() {
-//        this.driver.navigate().refresh();
-//    }
+    public void waitForChangeInTheAttribute(WebElement element, String attribute, String value) {
+        this.wait.until(ExpectedConditions.attributeToBe(element, attribute, value));
+    }
 }
 
 

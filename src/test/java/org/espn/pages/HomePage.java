@@ -17,7 +17,7 @@ public class HomePage extends BasePage{
     @FindBy (id = "InputPassword")
     private WebElement passwordLoginIframe;
     @FindBy (id = "BtnSubmit")
-    private WebElement loginOrDeleteAccountbuttonInIframe;
+    private WebElement loginOrDeleteAccountButtonInIframe;
     @FindBy (css = "div.view-starry-night >div:first-child")
     private WebElement loginModalIframe;
     @FindBy (id = "logo")
@@ -40,10 +40,90 @@ public class HomePage extends BasePage{
     private WebElement deleteAccountButton;
     @FindBy(css = "#Title > span")
     private WebElement deactivatedAccountMessageSpan;
+    @FindBy (id = "sideLogin-left-rail")
+    private WebElement loginElementOnTheLeftOfThePage;
+    @FindBy (id = "BtnSubmit")
+    private WebElement loginButtonInIframe;
+    @FindBy (id = "BtnCreateAccount")
+    private WebElement signUpButtonInIframe;
+    @FindBy (css = "h2#Title span")
+    private WebElement signUpTitleInIframe;
+    @FindBy (id = "InputFirstName")
+    private WebElement firstNameInputInIframe;
+    @FindBy (id = "InputLastName")
+    private WebElement lastNameInputInIframe;
+    @FindBy (id = "InputEmail")
+    private WebElement emailInputInSignUpIframe;
+    @FindBy (id = "password-new")
+    private WebElement passwordInputInSignUpIframe;
+    @FindBy (id = "BtnSubmit")
+    private WebElement signUpButtonInSignUpIframe;
+    @FindBy (id = "close")
+    private WebElement closeModalButtonInIframe;
 
 
     public HomePage(WebDriver driver) {
         super(driver);
+    }
+
+
+    public void clickOnSignUpButtonIframe() {
+        super.clickWebElement(this.signUpButtonInIframe);
+    }
+
+    public boolean signUPTitleIsDisplayed() {
+        super.waitForVisibility(this.signUpTitleInIframe);
+        return this.signUpTitleInIframe.isDisplayed();
+    }
+
+    public boolean firstNameInputSignUpIframeIsDisplayed() {
+        super.waitForVisibility(this.firstNameInputInIframe);
+        return firstNameInputInIframe.isDisplayed();
+    }
+
+    public boolean lastNameSignUpInputIsDisplayed() {
+        super.waitForVisibility(this.lastNameInputInIframe);
+        return lastNameInputInIframe.isDisplayed();
+    }
+
+    public boolean emailInputSignUpIframe() {
+        super.waitForVisibility(this.emailInputInSignUpIframe);
+        return emailInputInSignUpIframe.isDisplayed();
+    }
+    public boolean passwordInputSignUpIframe() {
+        super.waitForVisibility(this.passwordInputInSignUpIframe);
+        return passwordInputInSignUpIframe.isDisplayed();
+    }
+    public boolean signUpButtonToSubmitIframeIsDisplayed(){
+        super.waitForVisibility(this.signUpButtonInSignUpIframe);
+        return signUpButtonInSignUpIframe.isDisplayed();
+    }
+    public boolean closeSignUpIframeButton() {
+        super.waitForVisibility(this.closeModalButtonInIframe);
+        return closeModalButtonInIframe.isDisplayed();
+    }
+
+    public void typeOnFirstNameInput(String text) {
+        super.waitForVisibility(this.firstNameInputInIframe);
+        super.typeOnInput(this.firstNameInputInIframe, text);
+    }
+
+    public void typeOnLastNameInput(String text) {
+        super.waitForVisibility(this.lastNameInputInIframe);
+        super.typeOnInput(this.lastNameInputInIframe, text);
+    }
+    public void typeOnEmailInput(String text) {
+        super.waitForVisibility(this.emailInputInSignUpIframe);
+        super.typeOnInput(this.emailInputInSignUpIframe, text);
+    }
+    public void typeOnPasswordInput(String text) {
+        super.waitForVisibility(this.passwordInputInSignUpIframe);
+        super.typeOnInput(this.passwordInputInSignUpIframe, text);
+    }
+
+    public void clickOnSignUpForSignUpButtonIframe() {
+        super.waitForClickable(this.signUpButtonInSignUpIframe);
+        super.clickWebElement(this.signUpButtonInSignUpIframe);
     }
 
     public void hoverProfileIcon() {
@@ -70,14 +150,22 @@ public class HomePage extends BasePage{
         super.typeOnInput(this.emailLoginIframe, email);
         super.typeOnInput(this.passwordLoginIframe, password);
     }
-    public void clickSubmitButton() throws InterruptedException {
+    public void clickSubmitButton() {
         log.info("Clicking submit button...");
-        super.waitForVisibility(this.loginOrDeleteAccountbuttonInIframe);
-        super.waitForClickable(this.loginOrDeleteAccountbuttonInIframe);
-        clickWebElement(this.loginOrDeleteAccountbuttonInIframe);
-        Thread.sleep(3000);
+        super.waitForVisibility(this.loginOrDeleteAccountButtonInIframe);
+        super.waitForClickable(this.loginOrDeleteAccountButtonInIframe);
+        clickWebElement(this.loginOrDeleteAccountButtonInIframe);
+        waitForTheUserToBeLogged();
     }
 
+    public void waitForTheUserToBeLogged() {
+        super.waitToSeeIfElementAppears("#sideLogin-left-rail");
+        super.waitForChangeInTheAttribute(loginElementOnTheLeftOfThePage, "style", "display: none;");
+    }
+    public void waitForTheUserToBeLoggedOut() {
+        super.waitToSeeIfElementAppears("#sideLogin-left-rail");
+        super.waitForChangeInTheAttribute(loginElementOnTheLeftOfThePage, "style", "display: block;");
+    }
 
     public boolean isLoginIframePresent() {
         super.waitForVisibility(this.loginModalIframe);
@@ -88,30 +176,21 @@ public class HomePage extends BasePage{
         return this.logoInIframe.isDisplayed();
     }
     public boolean isLoginButtonDisplayedInLoginModal() {
-        super.waitForVisibility(this.loginOrDeleteAccountbuttonInIframe);
-        return this.loginOrDeleteAccountbuttonInIframe.isDisplayed();
+        super.waitForVisibility(this.loginOrDeleteAccountButtonInIframe);
+        return this.loginOrDeleteAccountButtonInIframe.isDisplayed();
     }
     public boolean isSignUpButtonDisplayedInLoginModal() {
         super.waitForVisibility(this.signupButtonInIframe);
         return this.signupButtonInIframe.isDisplayed();
     }
 
-
     public void moveOutOfTheIframe() {
         log.info("Moving back from the iFrame...");
         super.getDriver().switchTo().defaultContent();
     }
 
-    public WatchPage navigateFromHomePageToWatchPage(){
-        log.info("Navigating to " + "WatchPage");
-        WebDriver driver = super.getDriver();
-        driver.get("https://www.espn.com.co/watch/?redirected=true");
-        return new WatchPage(super.getDriver());
-    }
-    public WatchPage clickWatch(){
-        log.info("Navigating to " + "WatchPage");
-        WebDriver driver = super.getDriver();
-        driver.get("http://www.espn.com/watch/");
+    public WatchPage goToWatchPage() {
+        super.clickWebElement(this.linkToWatchPage);
         return new WatchPage(super.getDriver());
     }
 
@@ -124,35 +203,9 @@ public class HomePage extends BasePage{
         return this.welcomeText.getText();
     }
 
-    // logout
-
-    public void clickLogoutButton() throws InterruptedException {
+    public void clickLogoutButton() {
         waitForClickable(this.logOutButton);
         super.clickWebElement(this.logOutButton);
-        Thread.sleep(3000);
+        waitForTheUserToBeLoggedOut();
     }
-
-    //deactivate account
-
-    public void clickOnEspnProfileButton() {
-        waitForVisibility(this.espnProfileButton);
-        waitForClickable(this.espnProfileButton);
-            clickWebElement(espnProfileButton);
-    }
-
-
-    public void clickOnDeleteAccount() {
-        waitForVisibility(this.deleteAccountButton);
-        waitForClickable(this.deleteAccountButton);
-        clickWebElement(deleteAccountButton);
-    }
-
-    public String getDeactivatedAccountTextMessage() {
-        waitForVisibility(deactivatedAccountMessageSpan);
-        if (deactivatedAccountMessageSpan.isDisplayed()) {
-            return deactivatedAccountMessageSpan.getText();
-        }
-        return "";
-    }
-
 }
