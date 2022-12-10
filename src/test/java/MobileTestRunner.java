@@ -8,7 +8,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-
+/**
+ * It configures the cucumber options and links them to the features and step definitions directories.
+ */
 @CucumberOptions(
             plugin = {"pretty"},
             features = {"src/test/java/tests/features/disney"},

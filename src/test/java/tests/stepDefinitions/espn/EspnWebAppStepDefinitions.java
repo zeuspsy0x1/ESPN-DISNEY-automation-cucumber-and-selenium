@@ -79,7 +79,7 @@ public class EspnWebAppStepDefinitions extends BaseForWebTests {
         log.info("Validating that the sign up modal elements are being correctly displayed");
 
         log.info("Validate that sign Up title is displayed");
-        Assert.assertTrue(homePage.signUPTitleIsDisplayed(), "sign up title is not displayed");
+        Assert.assertTrue(homePage.signUpTitleIsDisplayed(), "sign up title is not displayed");
 
         log.info("Validate that the first Name input is displayed");
         Assert.assertTrue(homePage.firstNameInputSignUpIframeIsDisplayed(), "first name input is not displayed");
@@ -191,8 +191,7 @@ public class EspnWebAppStepDefinitions extends BaseForWebTests {
 
 
     /**
-     * Performs the user log in functions with the data from <BaseForWebTests>.
-     * And validates that the greetings in the profile modal show the username.
+     * Performs all the steps to log into the ESPN page
      */
     @Given("user is logged in ESPN webpage with the intention to logout")
     public void userIsLoggedInEspnWithTheIntentionToLogout() {
@@ -209,6 +208,9 @@ public class EspnWebAppStepDefinitions extends BaseForWebTests {
 
     }
 
+    /**
+     * Performs hover to the profile icon and click on the logout button
+     */
     @When("user is logged in and clicks on logout")
     public void userClicksOnLogout()  {
         homePage.hoverProfileIcon();
@@ -216,9 +218,12 @@ public class EspnWebAppStepDefinitions extends BaseForWebTests {
         homePage.hoverProfileIcon();
     }
 
+    /**
+     * Performs hover to the profile icon checks if the user is logged out
+     */
     @Then("user should be logged out")
     public void userShouldBeLoggedOut()  {
-
+        homePage.hoverProfileIcon();
         log.info("Validate that greetings are general after logging out");
         Assert.assertEquals(homePage.generalGreetingsText(), "Welcome!");
 
