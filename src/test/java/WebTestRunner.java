@@ -8,7 +8,9 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.espn.utils.BaseForWebTests;
 
-
+/**
+ * It configures the cucumber options and links them to the features and step definitions directories.
+ */
 @CucumberOptions(
             plugin = {"pretty"},
             features = {"src/test/java/tests/features/espn"},

@@ -36,14 +36,16 @@ public class WatchPage extends BasePage {
     }
 
     public List<WebElement> getCardsInTheCarouselTwo() {
-        return carousels.get(1).findElements(By.cssSelector("ul.Carousel__Inner li"));
+        final By CARD = By.cssSelector("ul.Carousel__Inner li");
+        return carousels.get(1).findElements(CARD);
     }
 
     public boolean checkTitleInAllCardsInTheCarouselTwo() {
         List<Boolean> cardsHaveTitle = new ArrayList<>();
         this.waitToSeeIfElementAppears("ul.Carousel__Inner li");
         getCardsInTheCarouselTwo().stream().forEach(element -> {
-            cardsHaveTitle.add(!element.findElement(By.cssSelector("h2.WatchTile__Title")).getText().equals(""));
+            final By watchTitle = By.cssSelector("h2.WatchTile__Title");
+            cardsHaveTitle.add(!element.findElement(watchTitle).getText().equals(""));
         });
         return cardsHaveTitle.contains(false);
     }

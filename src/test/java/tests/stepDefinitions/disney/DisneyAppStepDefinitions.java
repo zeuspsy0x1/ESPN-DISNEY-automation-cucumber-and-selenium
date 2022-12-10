@@ -16,7 +16,7 @@ import org.testng.Assert;
  * This class contains all the step definitions used for the three scenarios in the <disneyTests.feature>.
  * It extends from <BaseForMobileTest> to get access to the logger and the methods to use the driver.
  */
-public class disneyAppStepDefinitions extends BaseForMobileTests  {
+public class DisneyAppStepDefinitions extends BaseForMobileTests  {
 
         DashBoardScreen dashBoard;
         MapScreen map;
