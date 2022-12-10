@@ -8,6 +8,9 @@ import org.openqa.selenium.support.FindBy;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Defines the selectors and methods for the watch-page
+ */
 public class WatchPage extends BasePage {
 
     @FindBy(css = ".BucketsContainer > div")
@@ -25,21 +28,36 @@ public class WatchPage extends BasePage {
     @FindBy(css = ".lightbox__closebtn")
     private WebElement exitXButtonInModal;
 
-
+    /**
+     * Constructor method
+     * @param driver
+     */
     public WatchPage(WebDriver driver) {
         super(driver);
     }
 
+    /**
+     * Checks if at least one carousel is being displayed, counts every instance and
+     * @return true if there is at least one
+     */
     public boolean isAtLeastOneCarouselDisplayed() {
         super.waitForVisibility(carouselContainer);
         return carouselContainer.size() > 0;
     }
 
+    /**
+     * Gets all the cards in the carousel number 2, because the number 1 its harder to manage
+     * @return the cards that it can get
+     */
     public List<WebElement> getCardsInTheCarouselTwo() {
         final By CARD = By.cssSelector("ul.Carousel__Inner li");
         return carousels.get(1).findElements(CARD);
     }
 
+    /**
+     * Checks if each card has a title
+     * @return true if every card has it
+     */
     public boolean checkTitleInAllCardsInTheCarouselTwo() {
         List<Boolean> cardsHaveTitle = new ArrayList<>();
         this.waitToSeeIfElementAppears("ul.Carousel__Inner li");
@@ -49,7 +67,10 @@ public class WatchPage extends BasePage {
         });
         return cardsHaveTitle.contains(false);
     }
-
+    /**
+     * Checks if each card has a description
+     * @return true if every card has it
+     */
     public boolean checkDescriptionInAllCardsInTheCarouselTwo() {
         List<Boolean> cardsHaveTitle = new ArrayList<>();
         this.waitToSeeIfElementAppears("ul.Carousel__Inner li");
@@ -59,15 +80,27 @@ public class WatchPage extends BasePage {
         return cardsHaveTitle.contains(false);
     }
 
+    /**
+     * Clicks on the card number 2 in the carousel number 2 (because using the carousel 1 is harder)
+     */
     public void clickOnCardNumberTwoInCarouselTwo() {
         super.waitForVisibility(secondCarouselSecondCard);
         super.clickWebElement(secondCarouselSecondCard);
     }
+
+    /**
+     * Checks if the close button in the modal is displayed
+     * @return true if it is
+     */
     public boolean isSecondCardXButtonDisplayed() {
         super.waitForVisibility(secondCarouselSecondCard);
         super.waitForVisibility(exitXButtonInModal);
         return exitXButtonInModal.isDisplayed();
     }
+
+    /**
+     * Clicks the close button to close the detail card modal
+     */
     public void clickXButtonToCloseModal(){
         super.waitForVisibility(exitXButtonInModal);
         super.waitForClickable(exitXButtonInModal);

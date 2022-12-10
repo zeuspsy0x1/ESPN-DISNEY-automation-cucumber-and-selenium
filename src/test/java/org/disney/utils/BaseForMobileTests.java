@@ -20,8 +20,14 @@ public abstract class BaseForMobileTests {
     protected TutorialScreen tutorialScreen;
     public static AndroidDriver<AndroidElement> driver;
 
+    /**
+     * A public logger instance to be used by other classes
+     */
     public Logger log = Logger.getLogger(BaseForMobileTests.class);
 
+    /**
+     * Passes the driver to the Tutorial screen to start it
+     */
     public void setUpStartApp() {
         tutorialScreen = new TutorialScreen(getDriver());
     }
@@ -31,7 +37,7 @@ public abstract class BaseForMobileTests {
      *
      * @author Arley.Bolivar
      */
-    //@Before
+
     public void environmentSetUp() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         ConfigCapabilities.deviceSetUp(capabilities);
@@ -49,7 +55,6 @@ public abstract class BaseForMobileTests {
      *
      * @author Arley.Bolivar
      */
-    //@After
     public void mobileApplicationEnd() {
         driver.quit();
     }
@@ -63,6 +68,7 @@ public abstract class BaseForMobileTests {
     public AndroidDriver<AndroidElement> getDriver() {
         return driver;
     }
+
 
     /**
      * return SignUpOrLogInScreen after close the alerts.
