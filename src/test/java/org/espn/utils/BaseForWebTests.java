@@ -10,15 +10,17 @@ import org.espn.pages.HomePage;
  * And it also has the methods to start the new driver for each test scenario.
  * And a method to quit the driver.
  * Be careful when changing the username, as it is used to check the assertions in some steps.
+ *
  */
 public class BaseForWebTests {
 
     protected Driver driver;
     protected HomePage homePage;
+    protected String username = "nameZeusTest";
+    protected String password = "ZeusP4ss30rd.";
+
     protected String signUpEmail = "xzeusxvargasx@" + Math.random() + ".es";
     protected String email = "zeustesthybrid@zeustesthybrid.es";
-    protected String password = "ZeusP4ss30rd.";
-    protected String username = "nameZeusTest";
     protected String lastname = "lastnameVargasTest";
     protected String browser = "chrome";
     protected String url = "https://www.espnqa.com/?src=com&_adblock=true&espn=cloud";
