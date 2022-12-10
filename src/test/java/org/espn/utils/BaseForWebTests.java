@@ -18,9 +18,9 @@ public class BaseForWebTests {
     protected HomePage homePage;
     protected String username = "nameZeusTest";
     protected String password = "ZeusP4ss30rd.";
-
-    protected String signUpEmail = "xzeusxvargasx@" + Math.random() + ".es";
     protected String email = "zeustesthybrid@zeustesthybrid.es";
+    
+    protected String signUpEmail = "xzeusxvargasx@" + Math.random() + ".es";
     protected String lastname = "lastnameVargasTest";
     protected String browser = "chrome";
     protected String url = "https://www.espnqa.com/?src=com&_adblock=true&espn=cloud";
