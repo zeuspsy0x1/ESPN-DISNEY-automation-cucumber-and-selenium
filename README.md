@@ -8,5 +8,5 @@
 <h2 class="code-line" data-line-start=9 data-line-end=10 ><a id="Have_in_mind_9"></a>Have in mind:</h2>
 <ul>
 <li class="has-line-data" data-line-start="10" data-line-end="11">The Appium and Selenium versions used in this project are the highest compatible that don’t require to stop using MobileElement, this is so the mobile project doesn’t need major refactors to work.</li>
-<li class="has-line-data" data-line-start="10" data-line-end="11">The ESPN web test has a probability of ~10% to fail due to external reasons that affect the selection of the <close-modal-button-locator> on the watchpage. But the Disneyland mobile test almost never fails if the Appium server and Android Studio have a proper configuration.</li>
+<li class="has-line-data" data-line-start="10" data-line-end="11">The ESPN web test has a probability of ~10% to fail due to external reasons that affect the selection of the close-modal-button-locator on the watchpage. But the Disneyland mobile test almost never fails if the Appium server and Android Studio have a proper configuration.</li>
 </ul>
