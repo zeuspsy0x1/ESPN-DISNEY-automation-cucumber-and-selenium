@@ -4,6 +4,7 @@
 <ul>
 <li class="has-line-data" data-line-start="6" data-line-end="7">Open the project in the IDE, and then run the &lt;MobileTestRunner&gt; and &lt;WebTestRunner&gt; classes.</li>
 <li class="has-line-data" data-line-start="7" data-line-end="9">You will need to have Java 8 installed and the Android Studio and Appium server configured and running. Also configure the capabilities in the &lt;mobile_capabilities.json&gt;.</li>
+<li class="has-line-data" data-line-start="7" data-line-end="9"> Sometimes the webpage tries to send a code to the email account and it some tests can break because of it... So if you need to switch the non generated account it can have any email <in the email attribute>, but you will have to change the <username> and the <password> in the file <BaseForWebTests> otherwise some assertions will fail.</li>
 </ul>
 <h2 class="code-line" data-line-start=9 data-line-end=10 ><a id="Have_in_mind_9"></a>Have in mind:</h2>
 <ul>
