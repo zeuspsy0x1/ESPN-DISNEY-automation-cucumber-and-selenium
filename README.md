@@ -2,7 +2,9 @@
 <h2> This is a test project for learning purposes made while at Globant. </h2>
 <br/>
 
-https://github.com/zeuspsy0x1/ESPN-web-and-Disneyland-mobile-automation-Cucumber-Selenium/assets/78174849/2d0076a0-4fec-41ee-a5a2-335572539f9d
+
+https://github.com/zeuspsy0x1/ESPN-web-and-Disneyland-mobile-automation-Cucumber-Selenium/assets/78174849/77117544-285c-49c9-a73c-2a2c177ee3fa
+
 
 <br/>
 
